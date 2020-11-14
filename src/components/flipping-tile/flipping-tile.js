@@ -12,13 +12,15 @@ const template = document.createElement('template')
 template.innerHTML = `
     <style>
         :host {
-            background-color: #fff;
+            background-color: #ccc;
             margin: 10px;
             border-radius: 10px;
+            height: 50px;
+            width: 50px;
         }
     </style>
 
-    <div part="card" class="image-element"></div>
+    <div part="card" class="image-container"></div>
     <p part="card-side-info" class="card-side-info"></p>
 
     `
@@ -38,7 +40,8 @@ customElements.define('flipping-tile',
             
             /* Get the p-element in which we display the information about which side is displayed */
             this._cardSideInfo = this.shadowRoot.querySelector('.card-side-info')
-            this._imageElement = this.shadowRoot.querySelector('.image-element')
+            /* Get the p-element in which we display the information about which side is displayed */
+            this._imageElement = this.shadowRoot.querySelector('.image-container')
         }
         
 
@@ -52,6 +55,13 @@ customElements.define('flipping-tile',
             return ['', '']
         }
 
+        /**
+         * Called by the browser engine when an attribute changes.
+         *
+         * @param {string} name of the new attribute.
+         * @param {any} oldValue of the attribute.
+         * @param {any} newValue of the attribute. 
+         */
         attributeChangedCallback(name, oldValue, newValue) {
             if(name === '') {
                 return
