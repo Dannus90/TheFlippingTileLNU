@@ -11,7 +11,10 @@ body {
 }
 
 flipping-tile.flipping-tile::part(card) {
-  background-color: blue;
+  background-image: url("../images/2.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100%;
   width: 100%;
   border-radius: 10px;
