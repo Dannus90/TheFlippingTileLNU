@@ -20,7 +20,7 @@ template.innerHTML = `
 
     <div part="card-info-container">
         <div part="card" class="image-container"></div>
-        <p part="card-side-info" class="card-side-info">Testing purpose</p>
+        <p part="card-side-info" class="card-side-info">Frontside displayed</p>
     </div>
 
     `
@@ -35,16 +35,18 @@ customElements.define('flipping-tile',
          */
         constructor() {
             super()
-
             this.attachShadow({ mode: 'open'})
                 .appendChild(template.content.cloneNode(true))
-            
+
             /* Get the p-element in which we display the information about which side is displayed */
             this._cardSideInfo = this.shadowRoot.querySelector('.card-side-info')
             /* Get the p-element in which we display the information about which side is displayed */
-            this._imageElement = this.shadowRoot.querySelector('.image-container')             
+            this._imageElement = this.shadowRoot.querySelector('.image-container')
+
+            this._frontSideDisplayed = true
+
         }
-        
+
         /**
          * Watches the attributes "xxx" and "xxx" for changes on the element.
          *
@@ -89,6 +91,18 @@ customElements.define('flipping-tile',
          * This method will flip the card and display information regarding which side is currently displayed. 
          */
         _flipCardAndDisplayCardSide() {
+            console.log(this._frontSideDisplayed)
+            if(this._frontSideDisplayed) {
+                this._frontSideDisplayed = false
+                this._cardSideInfo.textContent = 'Backside displayed'
+                return
+            }
+
+            if(!this._frontSideDisplayed) {
+                this._frontSideDisplayed = true
+                this._cardSideInfo.textContent = 'Frontside displayed'
+                return
+            }
             return
         }
     }
