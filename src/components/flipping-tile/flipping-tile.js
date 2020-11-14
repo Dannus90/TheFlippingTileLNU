@@ -40,11 +40,10 @@ customElements.define('flipping-tile',
 
             /* Get the p-element in which we display the information about which side is displayed */
             this._cardSideInfo = this.shadowRoot.querySelector('.card-side-info')
-            /* Get the p-element in which we display the information about which side is displayed */
+            /* Get the div-container in which we display the current image */
             this._imageElement = this.shadowRoot.querySelector('.image-container')
-
+            /* Used to toggle side information */
             this._frontSideDisplayed = true
-
         }
 
         /**
@@ -91,7 +90,6 @@ customElements.define('flipping-tile',
          * This method will flip the card and display information regarding which side is currently displayed. 
          */
         _flipCardAndDisplayCardSide() {
-            console.log(this._frontSideDisplayed)
             if(this._frontSideDisplayed) {
                 this._frontSideDisplayed = false
                 this._cardSideInfo.textContent = 'Backside displayed'
