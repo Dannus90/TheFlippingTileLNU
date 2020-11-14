@@ -9,5 +9,6 @@ import './components/flipping-tile/'
 
 const cardsContainer = document.querySelector('#cards-container')
 const flippingTile = document.createElement('flipping-tile')
+flippingTile.classList.add('flipping-tile')
 
 cardsContainer.appendChild(flippingTile)

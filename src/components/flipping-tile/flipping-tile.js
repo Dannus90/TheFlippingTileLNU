@@ -8,25 +8,26 @@
 /**
  * Define template.
  */
+
 const template = document.createElement('template')
 template.innerHTML = `
     <style>
         :host {
-            background-color: #ccc;
-            margin: 10px;
-            border-radius: 10px;
-            height: 50px;
-            width: 50px;
+            cursor: pointer;
+            overflow: hidden;
         }
     </style>
 
-    <div part="card" class="image-container"></div>
-    <p part="card-side-info" class="card-side-info"></p>
+    <div part="card-info-container">
+        <div part="card" class="image-container"></div>
+        <p part="card-side-info" class="card-side-info">Testing purpose</p>
+    </div>
 
     `
 /**
 * Defining the custom element flipping tile
 */
+
 customElements.define('flipping-tile', 
     class extends HTMLElement {
         /**
@@ -41,10 +42,9 @@ customElements.define('flipping-tile',
             /* Get the p-element in which we display the information about which side is displayed */
             this._cardSideInfo = this.shadowRoot.querySelector('.card-side-info')
             /* Get the p-element in which we display the information about which side is displayed */
-            this._imageElement = this.shadowRoot.querySelector('.image-container')
+            this._imageElement = this.shadowRoot.querySelector('.image-container')             
         }
         
-
         /**
          * Watches the attributes "xxx" and "xxx" for changes on the element.
          *
@@ -91,4 +91,5 @@ customElements.define('flipping-tile',
         _flipCardAndDisplayCardSide() {
             return
         }
-    })
+    }
+)

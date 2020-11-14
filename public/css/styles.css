@@ -1,3 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #cards-container {
+  background-color: green;
+  width: 100vw;
+  height: 100vh;
+}
+
+flipping-tile.flipping-tile::part(card) {
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+flipping-tile.flipping-tile::part(card-info-container) {
   background-color: #fff;
+  height: 150px;
+  width: 150px;
+  position: relative;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+flipping-tile.flipping-tile::part(card-side-info) {
+  position: absolute;
+  color: #fff;
+  top: 100%;
 }
