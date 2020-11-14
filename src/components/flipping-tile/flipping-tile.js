@@ -20,7 +20,7 @@ template.innerHTML = `
 
     <div part="card-info-container">
         <div part="card" class="image-container"></div>
-        <p part="card-side-info" class="card-side-info">Frontside displayed</p>
+        <p part="card-side-info" class="card-side-info"><slot name="text-display">Frontside displayed</slot></p>
     </div>
 
     `
