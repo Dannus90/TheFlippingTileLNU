@@ -17,15 +17,13 @@ template.innerHTML = `
         }
     </style>
 
-    <div part="card-info-container">
-        <div part="card" class="image-container">
-            <div part="card-inner">
-                <div part="card-front">
-                    <img class="front-side-image" src="/images/0.png" alt="Gramophone">
-                </div>
-                <div part="card-back">
-                    <img class="back-side-image" src="/images/2.png alt="Questionmark">
-                </div>
+    <div part="card-content-container">
+        <div part="card-inner">
+            <div part="card-front">
+                <img part="front-image" class="front-side-image" src="/images/2.png" alt="Gramophone">
+            </div>
+            <div part="card-back">
+                <img part="back-image"class="back-side-image" src="/images/0.png" alt="Questionmark">
             </div>
         </div>
         <p part="card-side-info" class="card-side-info"><slot name="text-display">Frontside displayed</slot></p>

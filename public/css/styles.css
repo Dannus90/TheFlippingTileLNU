@@ -9,24 +9,51 @@ body {
   padding: 3rem;
 }
 
-flipping-tile.flipping-tile::part(card) {
-  background-image: url("../images/2.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-}
-
-flipping-tile.flipping-tile::part(card-info-container) {
-  background-color: #fff;
-  height: 150px;
+flipping-tile.flipping-tile::part(card-content-container) {
+  background-color: transparent;
   width: 150px;
+  height: 150px;
   position: relative;
   border-radius: 10px;
   padding: 0.3rem;
   border: 1px solid #000;
+  perspective: 1000px;
+}
+
+flipping-tile.flipping-tile::part(card-inner) {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+flipping-tile.flipping-tile::part(card-front),
+flipping-tile.flipping-tile::part(card-back) {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+flipping-tile.flipping-tile::part(front-image),
+flipping-tile.flipping-tile::part(back-image) {
+  width: 150px;
+  height: 150px;
+}
+
+flipping-tile.flipping-tile::part(card-front) {
+  background-color: #fff;
+  color: black;
+  border-radius: 10px;
+}
+
+flipping-tile.flipping-tile::part(card-back) {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
 }
 
 flipping-tile.flipping-tile::part(card-side-info) {
@@ -37,4 +64,9 @@ flipping-tile.flipping-tile::part(card-side-info) {
   background-color: blueviolet;
   padding: 1rem;
   border-radius: 5px;
+}
+
+flipping-tile.flipping-tile::part(card):hover
+  flipping-tile.flipping-tile::part(card-inner) {
+  transform: rotateY(180deg);
 }
