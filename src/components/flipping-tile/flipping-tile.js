@@ -18,7 +18,7 @@ template.innerHTML = `
     </style>
 
     <div part="card-content-container">
-        <div part="card-inner">
+        <div part="card-inner" class="card-inner">
             <div part="card-front">
                 <img part="front-image" class="front-side-image" src="/images/2.png" alt="Gramophone">
             </div>
@@ -52,6 +52,8 @@ customElements.define('flipping-tile',
             /* Front- and backside image element */
             this._frontSideImageElement = this.shadowRoot.querySelector('.front-side-image')
             this._backSideImageElement = this.shadowRoot.querySelector('.back-side-image')
+            /* Inner card */
+            this._cardInner = this.shadowRoot.querySelector('.card-inner')
         }
 
         /**
@@ -109,12 +111,14 @@ customElements.define('flipping-tile',
             if(this._frontSideDisplayed) {
                 this._frontSideDisplayed = false
                 this._cardSideInfo.textContent = 'Backside displayed'
+                this._cardInner.style.transform = 'rotateY(180deg)'
                 return
             }
 
             if(!this._frontSideDisplayed) {
                 this._frontSideDisplayed = true
                 this._cardSideInfo.textContent = 'Frontside displayed'
+                this._cardInner.style.transform = 'rotateY(0deg)'
                 return
             }
             return
