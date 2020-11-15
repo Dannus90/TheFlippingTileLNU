@@ -14,16 +14,17 @@ template.innerHTML = `
         :host {
             cursor: pointer;
             overflow: hidden;
+            display: inline-block;
         }
     </style>
 
-    <div part="card-content-container">
+    <div class="card-content-container" part="card-content-container">
         <div part="card-inner" class="card-inner">
             <div part="card-front">
                 <img part="front-image" class="front-side-image" src="/images/2.png" alt="Gramophone">
             </div>
             <div part="card-back">
-                <img part="back-image"class="back-side-image" src="/images/0.png" alt="Questionmark">
+                <img part="back-image"class="back-side-image" src="/images/lnu-symbol.png" alt="Questionmark">
             </div>
         </div>
         <p part="card-side-info" class="card-side-info"><slot name="text-display">Frontside displayed</slot></p>
@@ -42,7 +43,8 @@ customElements.define('flipping-tile',
             super()
             this.attachShadow({ mode: 'open'})
                 .appendChild(template.content.cloneNode(true))
-
+            /* Selecting the card content container */
+            this._cardContentContainer = this.shadowRoot.querySelector('.card-content-container')
             /* Get the p-element in which we display the information about which side is displayed */
             this._cardSideInfo = this.shadowRoot.querySelector('.card-side-info')
             /* Get the div-container in which we display the current image */
@@ -63,7 +65,7 @@ customElements.define('flipping-tile',
          * @static
          */
         static get observedAttributes() {
-            return ['backImageSrc', 'frontImageSrc', 'frontsideAlt', 'backsideAlt']
+            return ['backimage', 'frontimage', 'frontalt', 'backalt']
         }
 
         /**
@@ -74,19 +76,19 @@ customElements.define('flipping-tile',
          * @param {any} newValue of the attribute. 
          */
         attributeChangedCallback(name, oldValue, newValue) {
-            if(name === 'backImageSrc') {
+            if(name === 'backimage') {
                 return this._backSideImageElement.setAttribute("src", newValue)
             }
 
-            if(name === 'backsideAlt') {
+            if(name === 'backalt') {
                 return this._backSideImageElement.setAttribute("alt", newValue)
             }
 
-            if(name === 'frontsideAlt') {
+            if(name === 'frontalt') {
                 return this._frontSideImageElement.setAttribute("alt", newValue)
             }
 
-            if(name === 'frontImageSrc') {
+            if(name === 'frontimage') {
                 return this._frontSideImageElement.setAttribute("src", newValue)
             }
         }

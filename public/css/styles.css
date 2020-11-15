@@ -5,8 +5,13 @@ body {
 }
 
 #cards-container {
-  background-color: green;
+  background-color: rgb(0, 238, 255);
   padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 flipping-tile.flipping-tile::part(card-content-container) {
@@ -54,6 +59,7 @@ flipping-tile.flipping-tile::part(card-back) {
   background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
+  border-radius: 10px;
 }
 
 flipping-tile.flipping-tile::part(card-side-info) {
