@@ -14,21 +14,21 @@ template.innerHTML = `
         :host {
             cursor: pointer;
             overflow: hidden;
-            display: inline-block;
+            display: block;
         }
     </style>
 
     <div class="card-content-container" part="card-content-container">
         <div part="card-inner" class="card-inner">
-            <div part="card-front">
-                <img part="front-image" class="front-side-image" src="/images/2.png" alt="Gramophone">
-            </div>
-            <div part="card-back">
-                <img part="back-image"class="back-side-image" src="/images/lnu-symbol.png" alt="Questionmark">
-            </div>
+                <div part="card-front">
+                    <img part="front-image" class="front-side-image" src="/images/2.png" alt="Gramophone">
+                </div>
+                <div part="card-back">
+                    <img part="back-image"class="back-side-image" src="/images/lnu-symbol.png" alt="Questionmark">
+                </div>
         </div>
-        <p part="card-side-info" class="card-side-info"><slot name="text-display">Frontside displayed</slot></p>
     </div>
+    <p part="card-side-info" class="card-side-info"><slot name="text-display">Frontside displayed</slot></p>
 
     `
 /**
@@ -65,7 +65,7 @@ customElements.define('flipping-tile',
          * @static
          */
         static get observedAttributes() {
-            return ['backimage', 'frontimage', 'frontalt', 'backalt']
+            return ['backimage', 'frontimage', 'frontalt', 'backalt', 'borderstyle']
         }
 
         /**
@@ -90,6 +90,10 @@ customElements.define('flipping-tile',
 
             if(name === 'frontimage') {
                 return this._frontSideImageElement.setAttribute("src", newValue)
+            }
+
+            if(name === 'borderstyle') {
+                return this._cardContentContainer.style.border = newValue
             }
         }
 
