@@ -105,6 +105,9 @@ customElements.define('flipping-tile',
             this.addEventListener('keypress', this._flipCardAndDisplayCardSide)
         }
 
+        /**
+         * Called when the element is disconnected from the dom.
+         */
         disconnectedCallback () {
             this.removeEventListener('click', this._flipCardAndDisplayCardSide)
             this.removeEventListener('keypress', this._flipCardAndDisplayCardSide)
