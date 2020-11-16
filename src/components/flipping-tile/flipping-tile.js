@@ -119,6 +119,7 @@ customElements.define('flipping-tile',
         _flipCardAndDisplayCardSide() {
             if(this._frontSideDisplayed) {
                 this._frontSideDisplayed = false
+                this.dispatchEvent(new window.CustomEvent('flipped'))
                 this._cardSideInfo.textContent = 'Backside displayed'
                 this._cardInner.style.transform = 'rotateY(180deg)'
                 return
@@ -126,6 +127,7 @@ customElements.define('flipping-tile',
 
             if(!this._frontSideDisplayed) {
                 this._frontSideDisplayed = true
+                this.dispatchEvent(new window.CustomEvent('flipped'))
                 this._cardSideInfo.textContent = 'Frontside displayed'
                 this._cardInner.style.transform = 'rotateY(0deg)'
                 return
