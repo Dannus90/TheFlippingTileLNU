@@ -59,7 +59,7 @@ customElements.define('flipping-tile',
         }
 
         /**
-         * Watches the attributes "xxx" and "xxx" for changes on the element.
+         * Watches the attributes backimage, frontimage, frontalt, backalt and borderstyle for changes on the element.
          *
          * @readonly
          * @static
