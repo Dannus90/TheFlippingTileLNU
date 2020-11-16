@@ -50,3 +50,5 @@ Either flips the card to the frontside or to the backside and also dispatches a 
 ## Styling with CSS
 
 Style is done with css the text where the different elements in template have parts that are used for selection within the attached css document.
+
+![tile-examples.png](./images/ExampleImage.png)

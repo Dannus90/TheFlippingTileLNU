@@ -18,7 +18,7 @@ För presumtiva användare av webbkomponenten är det viktigt att den dokumenter
 
 Nedan visas ett förslag på hur korts olika status kan presenteras. Det står dig fritt att välja hur korts status presenteras.
 
-![tile-examples.png](../../public/images/ExampleImage.png)
+![flipping-tile.png](./.readme/tile-examples.png)
 
 <ol type="A">
     <li>Kort med baksidan upp.</li>
